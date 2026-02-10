@@ -1,0 +1,149 @@
+:root {
+    --pink-light: #ffdeeb;
+    --pink-main: #ff85a1;
+    --red-love: #ff4d6d;
+    --white: #ffffff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', cursive, sans-serif;
+    background: var(--pink-light);
+    overflow: hidden;
+    position: relative;
+}
+
+#main-heart {
+    font-size: 70px;
+    color: var(--red-love);
+}
+
+#main-WH {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+#main-w {
+    position: absolute;
+    align-self: center;
+    justify-self: center;
+    font-size: 30px;
+    color: var(--pink-light);
+    right: 45.955%;
+    transform: translate(0px, 2px);
+}
+
+.heart-bg {
+    position: absolute;
+    color: var(--red-love);
+    opacity: 0.2;
+    animation: float 8s linear infinite;
+    z-index: 1;
+    user-select: none;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0.7; }
+    100% { transform: translateY(1vh) rotate(380deg); opacity: 0; }
+}
+
+#login-box {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    border: 3px solid var(--pink-main);
+    position: relative;
+    z-index: 10;
+}
+
+#quote {
+    text-align: center;
+}
+
+h2 {
+    color: var(--red-love);
+    margin-bottom: 10px;
+    font-size: 24px;
+    margin-top: 0;
+}
+
+#login-box p {
+    color: var(--pink-main);
+    font-size: 17px;
+    padding-top: 30px;
+}
+
+blockquote p {
+    color: var(--pink-main);
+    font-size: 15px;
+}
+
+#input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+input[type="password"], input[type="text"] {
+    width: 100%;
+    padding: 15px 45px 15px 20px;
+    border: 2px solid var(--pink-light);
+    border-radius: 25px;
+    box-sizing: border-box;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    color: #555;
+}
+
+input:focus {
+    border-color: var(--pink-main);
+    box-shadow: 0 0 10px rgba(255, 133, 161, 0.3);
+}
+
+#toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 48%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--pink-main);
+    user-select: none;
+    font-size: 25px;
+}
+
+#toggle-password:hover {
+    color: var(--red-love);
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 25px;
+    background: var(--red-love);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+    box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+}
+
+button:hover {
+    background: #e63958;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}

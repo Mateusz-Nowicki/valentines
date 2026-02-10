@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walentynki</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <script src="hearts.js"></script>
+
+    <section id="guziczek">
+        <button type="button" onclick="autoplay()">Kliknij mnie</button>
+    </section>
+    <section id="login-box" style="display: none;">
+        <div id="main-WH">
+            <span id="main-heart">❤</span>
+            <span id="main-w">W</span>
+        </div>
+        <h2>Sekretny Kod</h2>
+        <form>
+            <div id="input-group">
+                <input type="password" id="password" placeholder="Kod..." required maxlength="8">
+                <span id="toggle-password" id="eye" onclick="oczko()">👁</span>
+            </div>
+            <button type="button" onclick="check()">Wejdź</button>
+            <p id="checking" style="display: none;"></p>
+        </form>
+    </section>
+    <section id="quote" style="visibility: hidden;">
+        <blockquote>
+            "Everything has to start on some certain day"
+            <p>~ Not known</p>
+        </blockquote>
+    </section>
+    <section>
+        <audio id="audioMusic" loop>
+            <source src="music/bundleOfJoy.mp3" type="audio/mp3">
+            Siema nie działa
+        </audio>
+    </section>
+
+    <script>
+        const password = "05052025";
+        let passwordInput = document.getElementById('password')
+        let paragraf = document.getElementById("checking");
+        function check(){
+            if(password == passwordInput.value){
+                paragraf.style.display = "none";
+                window.location.href = "walentynka.html";
+            }else if(passwordInput.value == "050525"){
+                paragraf.innerHTML = "Blisko, pełną date podaj";
+                paragraf.style.display = "block"; 
+            } else {
+                paragraf.innerHTML = "Niepoprawny kod, próbuj dalej ;D";
+                paragraf.style.display = "block";
+            }
+        }
+
+        function oczko() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+        }
+
+        function autoplay() {
+            document.getElementById("guziczek").style.display = "none";
+            document.getElementById("login-box").style.display = "block";
+            document.getElementById("quote").style.visibility = "visible";
+            document.getElementById("audioMusic").play();
+            document.getElementById("audioMusic").volume = 0.4;
+        }
+
+    </script>
+
+</body>
+</html>

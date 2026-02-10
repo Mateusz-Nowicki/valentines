@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walentynki</title>
+    <link rel="stylesheet" href="main2.css">
+</head>
+<body>
+    <script src="hearts.js"></script>
+    <main id="main1" style="display: none;">
+        <section id="question">
+            <button type="button" class="yes" id="yes1" onclick="zostane()">TAK</button>
+            <button type="button" class="no" id="no1" onmouseover="ucieknij(this)">NIE</button>
+        </section>
+    </main>
+    <main id="main2">
+        <header>
+            <h2>Mogę zadać ci pytanko kochanie?</h2>
+        </header>
+        <section id="question">
+            <button type="button" class="yes" onclick="chce()">TAK</button>
+            <button type="button" class="no" id="no2" onclick="niechce()">NIE</button>
+        </section>
+    </main>
+    <main id="main3" style="display: none;">
+        <audio src="music/bundleOfJoy.mp3" loop id="muzyczka"></audio>
+        <h1>YAYYYYYY</h1>
+        <img src="images/1.jpg" alt="fotka" id="foteczki">
+    </main>
+</body>
+<script>
+    var counter = 1;
+    var track = null;
+    function niechce(){
+        switch (counter) {
+            case 1:
+                track = new Audio("sounds/niedostepna.ogg");
+                track.play();
+                counter++;
+                break;
+            case 2:
+                track = new Audio("sounds/ejniedostepna.ogg");
+                track.play();
+                counter++;
+                break;
+            case 3:
+                track = new Audio("sounds/takbardzo.ogg");
+                track.play();
+                counter++;
+                break;
+            default:
+                track = new Audio("sounds/okej.ogg");
+                track.play();
+                break;
+        }
+    }
+
+    function chce(){
+        setTimeout(() => {
+            track = new Audio("sounds/zostaniesz.ogg");
+            track.play();
+        }, 1000);
+        track = new Audio("sounds/yayy.ogg");
+        track.play();
+        document.getElementById("main1").style.display = "block";
+        document.getElementById("main2").style.display = "none";
+        
+    }
+
+    var currSize = 100;
+    function ucieknij(element){
+        let min = 0;
+        let max = 60;
+        currSize *= 1.1;
+        element.style.left = Math.random() * (max - min + 1) + min + "vw";
+        element.style.top = Math.random() * (max - min + 1) + min + "vh";
+        if(currSize < 600){
+            document.getElementById("yes1").style.width = currSize + "px";
+            document.getElementById("yes1").style.height = currSize - (currSize*0.4) + "px";
+        } else {
+            element.style.display = "none";
+        }
+    }
+
+    function zostane(){
+        document.getElementById("main1").style.display = "none";
+        document.getElementById("main3").style.display = "block";
+        document.getElementById("muzyczka").play();
+        document.getElementById("muzyczka").volume = 0.4;
+        zmien();
+    }
+    var count = 1;
+
+    function zmien(){
+        setInterval(() => {
+            if(count > 14){
+                count = 1
+            }
+            document.getElementById("foteczki").src = "images/" + count + ".jpg";
+            count++;
+        }, 3000);
+    }
+</script>
+</html>
