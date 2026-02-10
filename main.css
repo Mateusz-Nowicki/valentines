@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
 :root {
     --pink-light: #ffdeeb;
     --pink-main: #ff85a1;
@@ -13,7 +15,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    font-family: 'Segoe UI', cursive, sans-serif;
+    font-family: "Dancing Script", cursive;
     background: var(--pink-light);
     overflow: hidden;
     position: relative;
